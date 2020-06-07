@@ -19,7 +19,7 @@ After Successfully Installing nodejs and mongodb then type following Command on 
 * [ejs](https://ejs.co/) - ejs - Render Web Page
 * [npm](https://www.npmjs.com/) - JavaScript runtime environment
 * [express](http://expressjs.com/) - Expressjs
-* [express](https://www.free-css.com/) - HTML & CSS Template
+* [free-css](https://www.free-css.com/) - HTML & CSS Template
  
 
 ## Authors
