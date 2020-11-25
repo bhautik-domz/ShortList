@@ -9,9 +9,6 @@ These instructions will get you a copy of the project up and running on your loc
 * [Nodejs](https://nodejs.org/en/download/) - Install Nodejs 
 * [mongodb](https://www.mongodb.com/products/compass) - Install Mongodb
 
-### Run Project
-After Successfully Installing nodejs and mongodb then type following Command on your System type following command either on powershell or command prompt.
-
 ## Built With
 
 * [Nodejs](https://nodejs.org/en/) - Nodejs Server 
