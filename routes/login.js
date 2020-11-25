@@ -13,9 +13,9 @@ loginRouter.use(bodyParser.json());
 loginRouter.route('/')
 .get((req, res, next)=> {
     session_tmp=req.session;
-    if(req.query.error == 0 && session_tmp.email == null)
+    if(req.query.error >= 0 && session_tmp.email == null)
     {
-        res.render('login.ejs', {login_error:'0'});
+        res.render('login.ejs', {login_error:req.query.error});
     }
     else if(session_tmp.email)
     {
@@ -45,7 +45,7 @@ loginRouter.route('/data')
             session_tmp.password=logindata.password;
             session_tmp.id=logindata._id;
             console.log("Currently Login User "+ logindata);
-            res.redirect('/');
+            res.redirect('/link');
         }
     }, (err) => next(err))
     .catch((err) => next(err));

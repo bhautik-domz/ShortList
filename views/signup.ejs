@@ -28,6 +28,13 @@
 				    <div class="contact_form">
 					    <form action="/signup/data" method="post">
 						   <fieldset>
+                            <% if(locals.signup_error && locals.data){ %>
+                                <div class="full field">
+                                    <% if(signup_error==0 && data!=""){ %>
+                                    <p>Your Email & Password are Duplicate</p>
+                                    <%}%>
+                                 </div>
+                                <% } %>
 						       <div class="full field">
 							      <input required="" type="text" placeholder="Enter Your First Name" name="fname" />
                                </div>

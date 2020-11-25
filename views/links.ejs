@@ -23,12 +23,15 @@
                     <tbody>
                         <% for(var i=0; i < data.length; i++) { %>
                             <tr>
-                              <td>localhost:3000/link/<%= data[i].short %></td>
+                              <td><%=host %>/link/<%= data[i].short %></td>
                               <td><%= data[i].orignal %></td>
                             </tr>
                          <% } %>
                     </tbody>
                 </table>
+            </div>
+            <div style="margin: auto;padding-bottom: 10px;">
+                <a href="/#createlink"><b style="color: #095A83;">CREATE NEW SHORT LINK</b></a>
             </div>
         </div>
     </div>

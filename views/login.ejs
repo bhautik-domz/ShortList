@@ -32,7 +32,13 @@
 						   <fieldset>
                                <% if(locals.login_error){ %>
                                 <div class="full field">
+                                    <% if(login_error==0){ %>
                                     <p>Check Your Username & Password</p>
+                                    <%
+                                    }else if(login_error==1){
+                                     %>
+                                     <p>Need To First Login</p>
+                                     <%}%>
                                  </div>
                                 <% } %>
 							   <div class="full field">

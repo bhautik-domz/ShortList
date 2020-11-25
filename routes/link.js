@@ -7,7 +7,7 @@ const link=require('../models/link');
 const linkRouter = express.Router();
 
 linkRouter.use(bodyParser.json());
-var random;  
+var random;
 
 /* GET users listing. */
 linkRouter.route('/')
@@ -19,7 +19,7 @@ linkRouter.route('/')
     link.find({'email':session_tmp.email})
         .then((data) => {
             
-            res.render('links',{data:data,email:session_tmp.email,fname:session_tmp.fname,lname:session_tmp.lname});
+            res.render('links',{data:data,email:session_tmp.email,fname:session_tmp.fname,lname:session_tmp.lname,host:req.headers.host});
             
         }, (err) => next(err))
         .catch((err) => next(err));
@@ -65,9 +65,7 @@ linkRouter.route('/data')
   }
   else
   {
-    var err = new Error('You are not logged in!');
-    err.status = 403;
-    next(err);
+    res.redirect('/login?error=1');
   }
 });
 

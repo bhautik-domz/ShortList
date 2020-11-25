@@ -15,7 +15,11 @@ signupRouter.use(bodyParser.json());
 signupRouter.route('/')
 .get((req, res, next)=> {
     session_tmp=req.session;
-    if(session_tmp.email)
+    if(req.query.error >= 0 && session_tmp.email == null)
+    {
+        res.render('signup.ejs', {signup_error:req.query.error,data:req.query.data});
+    }
+    else if(session_tmp.email)
     {
         res.redirect('/');
     }
@@ -32,8 +36,9 @@ signupRouter.route('/data')
         console.log('\n Rigistration is Sucessful ', signup);
         res.redirect("/");
         
-    }, (err) => next(err))
-    .catch((err) => next(err));
+    }, (err) => {
+        res.redirect('/signup?error=0&data='+err);
+    });
 });
 
 module.exports = signupRouter;

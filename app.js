@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require('express-session');
 var config = require('./config');
+var flash = require('connect-flash');
 
 const mongoose = require('mongoose');
 
@@ -16,6 +17,7 @@ var loginRouter =require('./routes/login');
 var logoutRouter =require('./routes/logout');
 var profileRouter = require('./routes/Profile');
 var linkRouter = require('./routes/link');
+var developmentRouter = require('./routes/development');
 
 // DataBase Part
 
@@ -39,6 +41,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
@@ -56,6 +59,7 @@ app.use('/login',loginRouter);
 app.use('/logout',logoutRouter);
 app.use('/profile',profileRouter);
 app.use('/link',linkRouter);
+app.use('/development',developmentRouter);
 
 
 // catch 404 and forward to error handler
